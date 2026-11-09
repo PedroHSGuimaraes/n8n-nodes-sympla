@@ -1,0 +1,42 @@
+{
+  "name": "Sympla — polling de pedidos novos",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "content": "O workflow vem desligado. Ative para o n8n consultar a lista de pedidos no intervalo de polling. A Sympla não publica webhook. O primeiro poll ativo só grava a marca.",
+        "height": 120,
+        "width": 420
+      },
+      "id": "88888888-8888-4888-8888-888888888888",
+      "name": "Nota",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [0, -160]
+    },
+    {
+      "parameters": {
+        "apiVersion": "1.6.0",
+        "eventId": { "__rl": true, "mode": "id", "value": "" },
+        "watch": "orders",
+        "timezone": "America/Sao_Paulo",
+        "pageSize": 100,
+        "maxPages": 10,
+        "manualLimit": 20
+      },
+      "id": "99999999-9999-4999-8999-999999999999",
+      "name": "Pedidos novos",
+      "type": "n8n-nodes-sympla.symplaTrigger",
+      "typeVersion": 1,
+      "position": [280, 0],
+      "credentials": {
+        "symplaApi": {
+          "id": "sympla-local",
+          "name": "Sympla API"
+        }
+      }
+    }
+  ],
+  "connections": {},
+  "settings": { "executionOrder": "v1" }
+}

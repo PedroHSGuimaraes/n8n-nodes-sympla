@@ -1,0 +1,55 @@
+{
+	"name": "n8n-nodes-sympla",
+	"version": "0.2.0",
+	"description": "n8n community node for the Sympla public API: events, presentations, orders, participants, check-in, and a polling trigger. Usable as an AI Agent tool.",
+	"license": "MIT",
+	"homepage": "https://github.com/PedroHSGuimaraes/n8n-nodes-sympla",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/PedroHSGuimaraes/n8n-nodes-sympla.git"
+	},
+	"bugs": {
+		"url": "https://github.com/PedroHSGuimaraes/n8n-nodes-sympla/issues"
+	},
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"sympla",
+		"events",
+		"tickets",
+		"check-in"
+	],
+	"author": {
+		"name": "Pedro Henrique Santos Guimarães",
+		"email": "pedro.guimaraes02@hotmail.com"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"test": "n8n-node build && node --test test/*.test.cjs",
+		"typecheck": "tsc --noEmit --pretty false"
+	},
+	"files": ["dist", "docs", "workflows", "CHANGELOG.md", "SECURITY.md", "LICENSE.md"],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": ["dist/credentials/SymplaApi.credentials.js"],
+		"nodes": [
+			"dist/nodes/Sympla/Sympla.node.js",
+			"dist/nodes/SymplaTrigger/SymplaTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.55.5",
+		"eslint": "9.32.0",
+		"n8n-workflow": "2.47.0",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"engines": {
+		"node": ">=24.0.0"
+	}
+}
